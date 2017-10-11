@@ -11,18 +11,19 @@ var game = {
         const min = 0;
         this.secretword = this.dictionary[Math.floor(Math.random() * (this.dictionary.length - min)) + min];
     },
+
+    getlettersfromsecretword : function(){
+        this.lettersinsecretword=this.secretword.split("");
+    },
+    isletterinsecretword : function(guessedLetter){
+        return this.lettersinsecretword.includes(guessedLetter);
+    },
     startgame: function(){
         this.numguesses = 7;
         this.getsecretwordfromdictionary();
         this.lettersguessed = [];
         this.getlettersfromsecretword();
 
-    },
-    getlettersfromsecretword : function(){
-        this.lettersinsecretword=this.secretword.split("");
-    },
-    isletterinsecretword : function(){
-        
     }
 
 
