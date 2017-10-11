@@ -3,5 +3,14 @@ body {
 }
 
 .well {
+    background: red;
+}
+.left-well {
     height: 350px;
+}
+
+
+#witty-message {
+    background: red;
+    height: 20px;
 }
