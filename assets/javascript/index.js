@@ -1,0 +1,2 @@
+game.startgame();
+ui.start();
