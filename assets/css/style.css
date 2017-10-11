@@ -9,15 +9,16 @@ body {
 .left-well {
     height: 350px;
 }
-
-
+.clearfix {
+    clear:both;
+}
 #witty-message {
     background: red;
     height: 20px;
 }
 
 .letter {
-    border-bottom: 2px solid black;
+    font-size:2em;
     float: left;
     width: 10%;
 }

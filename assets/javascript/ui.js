@@ -4,28 +4,35 @@ var ui = {
     guessesDiv : document.getElementById("guesses"),
     msgDiv : document.getElementById("witty-message"),
     hangmanDiv : document.getElementById("hangman"),
-    numguessesDiv : document.getElementById("numguesses"),
+    numguessesSpan : document.getElementById("numguesses"),
     debugDiv : document.getElementById("debug"),
     drawWordOnScreen:function(){
         game.lettersinsecretword.forEach((letter)=>{
-            var div = document.createElement('div');
-            div.innerHTML = letter;
-            div.classList = "letter hide";
+            let div = document.createElement('div');
+            div.innerHTML = "_";
+            div.classList = "letter";
             div.dataset.letter = letter;
             this.lettersDiv.appendChild(div);
             this.letterDiv.push(div);
         });
+        //Adds an empty div, so the parent container doesn't collapse
+        let div = document.createElement('div');
+        div.classList='clearfix';
+        this.lettersDiv.appendChild(div);
+
     },
     msg: function(msg){
         this.msgDiv.innerHTML = msg;
     },
     show: function(el){
-        el.classList.remove="hdie";
-        el.classList="show";
+        el.innerHTML = el.dataset.letter;
+    },
+    pretty: function(json){
+        return `<pre>${JSON.stringify(game, null, 2)}</pre>`;
     },
     start: function(){
         this.drawWordOnScreen();
-        this.numguessesDiv.innerHTML = game.numguesses;
-        this.debugDiv.innerHTML = game.lettersinsecretword;
+        this.numguessesSpan.innerHTML = game.numguesses;
+        this.debugDiv.innerHTML = this.pretty(game);
     }
 }
